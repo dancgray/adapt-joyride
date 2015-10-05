@@ -1,0 +1,16 @@
+{
+  "name": "adapt-joyride",
+  "version": "0.0.2",
+  "homepage": "https://github.com/dancgray/adapt-joyride",
+  "issues": "https://github.com/dancgray/adapt-joyride/issues",
+  "displayName" : "Joyride",
+  "extension" : "extension",
+  "description": "An extension for adding jQuery Joyride feature tour",
+  "main": "/js/adapt-joyride.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_joyride"
+}

@@ -1,0 +1,27 @@
+<div class="joyride">
+    <div class="joyride-inner">
+      <!-- Tip Content -->
+      <ol id="joyRideTipContent">
+        {{#each joyrideItems}}
+        <li data-class="{{_data-class}}" data-button="{{data-button}}" data-options="{{_data-options}}" class="{{_classes}}">
+          {{{joyrideBody}}}
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+    <script src="extensions/adapt-joyride/js/jquery.joyride-2.0.js"></script>
+    <script>
+      $(window).load(function() {
+        $('#joyRideTipContent').joyride({
+          autoStart : true,
+          postStepCallback : function (index, tip) {
+          if (index == 2) {
+            $(this).joyride('set_li', false, 1);
+          }
+        },
+        modal:true,
+        expose: true
+        });
+      });
+    </script>
+</div>

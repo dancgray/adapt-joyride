@@ -1,0 +1,36 @@
+// to be added to pages or menus which need joyride walkthrough
+{
+  "_joyride": {
+    "_isEnabled": true,
+    "_joyrideItems": [
+      {
+        "_data-class": "page-title",// the class of the DOM object you want to target with this tip
+        "data-button": "next", // the button text to go to the next tip
+        "_data-options": "tipLocation:top;tipAnimation:fade", // display options see http://foundation.zurb.com/docs/components/joyride.html
+        "_classes": "",
+        "joyrideBody": "Welcome to your Adapt Joyride, enjoy the trip.." // The text or HTML markup to be used in this tip
+      },
+      {
+        "_data-class": "navigation-back-button",// the class of the DOM object you want to target with this tip
+        "data-button": "next", // the button text to go to the next tip
+        "_data-options": "tipLocation:bottom;tipAnimation:fade", // display options see http://foundation.zurb.com/docs/components/joyride.html
+        "_classes": "",
+        "joyrideBody": "this pointer will take you back.. way back" // The text or HTML markup to be used in this tip
+      },
+      {
+        "_data-class": "page-level-progress-navigation",
+        "data-button": "next",
+        "_data-options": "tipLocation:bottom;tipAnimation:fade",
+        "_classes": "",
+        "joyrideBody": "this losenge is not a pill it's the progress bar"
+      },
+      {
+        "_data-class": "navigation-drawer-toggle-button",
+        "data-button": "next",
+        "_data-options": "tipLocation:bottom;tipAnimation:fade",
+        "_classes": "",
+        "joyrideBody": "this looks like a hamburger, don't eat it :) its the drawer"
+      }
+    ]
+  }
+}
