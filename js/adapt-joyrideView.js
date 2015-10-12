@@ -1,5 +1,5 @@
 define(function(require) {
-
+    var jqueryJoyride = require('extensions/adapt-joyride/js/jquery.joyride-2.1');
     var Adapt = require('coreJS/adapt');
     var Backbone = require('backbone');
     var JoyrideView = Backbone.View.extend({
@@ -18,24 +18,36 @@ define(function(require) {
             this.render();
         },
 
-        events: {},
-
         preRender: function() {
 
         },
 
+        postRender: function() {
+            
+        },
+
         render: function () {
-console.log('render joyride');
             var collectionData = this.collection.toJSON();
             var modelData = this.model.toJSON();
             var template = Handlebars.templates["joyride"];
-
-            $('.navigation-drawer-toggle-button').after(this.$el.html(template(collectionData)));
-            debugger
+            $('.navigation-drawer-toggle-button').after(this.$el.html(template({model: modelData, joyrides:collectionData})));
+            this.startJoyride();
             return this;
         },
 
-        postRender: function() {}
+        startJoyride: function() {
+            console.log('startJoyride');
+            $('#joyRideTipContent').joyride({
+              autoStart : true,
+              postStepCallback : function (index, tip) {
+              if (index == 2) {
+                $(this).joyride('set_li', false, 1);
+              }
+            },
+            modal:true,
+            expose: true
+            });
+        }
 
     });
 

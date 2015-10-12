@@ -1,3 +1,4 @@
+define(function(require) {
   /*
  * jQuery Foundation Joyride Plugin 2.1
  * http://foundation.zurb.com
@@ -926,3 +927,4 @@
   };
 
 }(jQuery, this));
+});

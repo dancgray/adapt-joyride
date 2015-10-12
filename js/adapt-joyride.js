@@ -7,17 +7,17 @@ define(function(require) {
   function setupJoyride(joyrideModel, joyrideItems) {
 
     var joyrideCollection = new Backbone.Collection(joyrideItems);
-    var joyrideModel = new Backbone.Model(joyrideModel);
 
     new JoyrideView({ model: joyrideModel, collection: joyrideCollection });
   }
 
-  Adapt.once('app:dataReady', function() {
+  Adapt.on('router:page', function(pageModel) {
 
-    var courseJoyride = Adapt.course.get('_joyride');
+    //var courseJoyride = Adapt.course.get('_joyride');
+    var courseJoyride = pageModel.get('_joyride');
 
-    if (courseJoyride._isEnabled) {
-      setupJoyride(courseJoyride, courseJoyride._joyrideItems);
+    if (courseJoyride && courseJoyride._isEnabled) {
+      setupJoyride(pageModel, courseJoyride._joyrideItems);
     } else {
       return console.log('Sorry, no joyride object is set on the course.json file');
     }
