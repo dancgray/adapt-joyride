@@ -13,11 +13,14 @@ define(function(require) {
             // when navigating through the router
             // This cleans up zombie views and prevents memory leaks
             this.listenTo(Adapt, 'remove', this.remove);
-            // On initialize start the render process
-            //this.preRender();
-            this.render();
+            this.listenTo(Adapt, 'popup:opened', this.toggleJoyrideStatus(false));
+            this.listenTo(Adapt, 'notify:closed', this.toggleJoyrideStatus(true)); notify:closed
+            // delay joyride starting
+            _.delay(_.bind(function() {
+                this.render();
+            }, this), 1000);
         },
-
+/*
         preRender: function() {
 
         },
@@ -25,7 +28,7 @@ define(function(require) {
         postRender: function() {
             
         },
-
+*/
         render: function () {
             var collectionData = this.collection.toJSON();
             var modelData = this.model.toJSON();
@@ -39,6 +42,9 @@ define(function(require) {
             console.log('startJoyride');
             $('#joyRideTipContent').joyride({
               autoStart : true,
+              "cookieMonster": true,
+              "cookieName": "JoyRide",
+              "cookieDomain": false,
               postStepCallback : function (index, tip) {
               if (index == 2) {
                 $(this).joyride('set_li', false, 1);
@@ -47,6 +53,10 @@ define(function(require) {
             modal:true,
             expose: true
             });
+        },
+
+        stopJoyride: function() {
+            console.log('stopJoyride');
         }
 
     });
